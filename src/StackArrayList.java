@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 
 public class StackArrayList<E>
- extends AbstractStack<E>
-{
+		implements Stack<E> {
 	protected ArrayList<E> data;
 
 	public StackArrayList()
@@ -23,6 +22,11 @@ public class StackArrayList<E>
 	// post: most recently pushed item is removed and returned
 	{
 		return data.remove(size()-1);
+	}
+
+	@Override
+	public boolean empty() {
+		return size() == 0;
 	}
 
 	public E peek()
