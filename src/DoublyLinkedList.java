@@ -1,4 +1,4 @@
-public abstract class DoublyLinkedList<E> extends AbstractList<E> {
+public class DoublyLinkedList<E> {
     protected int count;
     protected DoublyLinkedNode<E> head;
     protected DoublyLinkedNode<E> tail;
@@ -49,5 +49,32 @@ public abstract class DoublyLinkedList<E> extends AbstractList<E> {
         }
         count--;
         return temp.value();
+    }
+
+    public int size() {
+        return count;
+    }
+
+    public int indexOf(Object x)
+    {
+        DoublyLinkedNode current = head;
+        int result = 0;
+        for(int i = 0; i < count; i++){
+            if(x.equals(current.data)){
+                result = i;
+                return result;
+            }
+            current = current.getNext(); // increment current pointer so that it
+            // points to the next node in the list
+        }
+        return result;
+    }
+
+    public boolean isEmpty(){
+        return count==0;
+    }
+
+    public E getLast(){
+        return tail.value();
     }
 }

@@ -33,6 +33,10 @@ public class DoublyLinkedNode<E>
         nextElement = (DoublyLinkedNode<E>) o;
     }
 
+    public DoublyLinkedNode<E> getNext(){
+        return nextElement;
+    }
+
     public E value() {
 
         return data;
