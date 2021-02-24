@@ -10,7 +10,7 @@ class StackFactory<E> {
     else if(entry.equals("DL"))
         return new StackDoubly<E>();
 	else {
-	    return new StackVector<E>();
+	    return new Stacklist<E>();
     }
    }
 }
