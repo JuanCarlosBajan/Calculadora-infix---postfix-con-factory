@@ -1,4 +1,11 @@
-public class Traductor {
+public class Traductor<E> {
+
+    Stack<Character> stack;
+    StackFactory factory = new StackFactory<E>();
+
+    public Traductor(String value){
+        stack = factory.getStack(value);
+    }
 
     // A utility function to return
     // precedence of a given operator
@@ -23,12 +30,12 @@ public class Traductor {
     // The main method that converts
     // given infix expression
     // to postfix expression.
-    static String infixToPostfix(String exp) {
+    public String infixToPostfix(String exp) {
         // initializing empty String for result
         String result = new String("");
 
         // initializing empty stack
-        Stack<Character> stack = new StackVector<Character>();
+
 
         for (int i = 0; i < exp.length(); ++i) {
             char c = exp.charAt(i);

@@ -1,4 +1,4 @@
-public abstract class SinglyLinkedList<E> extends AbstractList<E>
+public abstract class SinglyLinkedList<E>
 {
 
 protected int count; // list size

@@ -8,6 +8,7 @@
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Scanner;
 
 /**
  * Esta es la clase principal en el programa, ella lleva el control de todo y brinda los datos necesarios
@@ -22,6 +23,28 @@ public class Main {
     public static void main(String[] args) {
 
     CalculadoraGeneral calculadora = new CalculadoraJuanBajan();
+    Scanner scan = new Scanner(System.in);
+    Traductor traductor = new Traductor<String>("AL");;
+
+    System.out.println("Por favor ingrese el Stack que desea utilizar");
+    System.out.println("AL para ArrayList");
+    System.out.println("VE para Vector");
+    System.out.println("DL para DoublyLinkedList");
+    System.out.println("SL para SimpleLinkedList");
+
+
+
+    boolean run = true;
+    while (run) {
+        String choice = scan.nextLine();
+        if (choice == "AL" || choice == "VE" || choice == "DL" || choice == "SL") {
+            traductor = new Traductor<String>(choice);
+            run = false;
+        } else {
+            System.out.println("Por favor ingrese un valor correcto");
+        }
+    }
+
     File archivo = null;
     FileReader fr = null;
     BufferedReader br = null;
@@ -34,16 +57,14 @@ public class Main {
 
         String linea;
         while((linea=br.readLine())!=null) {
-            resp = calculadora.Calculo(linea);
+            String trad = traductor.infixToPostfix(linea);
+            resp = calculadora.Calculo(trad);
             System.out.println(resp);
         }
     }
     catch(Exception e){
         e.printStackTrace();
     }
-
-
-
     }
 
     }
