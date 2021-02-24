@@ -5,7 +5,8 @@ class StackFactory<E> {
     // seleccion de la implementacion a utilizar:
 	if (entry.equals("AL"))
       return new StackArrayList<E>(); //regresa ArrayList
-	else
+	if(entry.equals("VE"))
       return new StackVector<E>(); //regresa Vector
+	
    }
 }
