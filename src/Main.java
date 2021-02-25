@@ -22,9 +22,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-    CalculadoraGeneral calculadora = new CalculadoraJuanBajan();
     Scanner scan = new Scanner(System.in);
-    Traductor traductor = new Traductor<String>("AL");;
+    Traductor traductor;
+    String choice = "";
+    StackFactory factory = new StackFactory<String>();
 
     System.out.println("Por favor ingrese el Stack que desea utilizar");
     System.out.println("AL para ArrayList");
@@ -36,20 +37,24 @@ public class Main {
 
     boolean run = true;
     while (run) {
-        String choice = scan.nextLine();
-        if (choice == "AL" || choice == "VE" || choice == "DL" || choice == "SL") {
-            traductor = new Traductor<String>(choice);
+        choice = scan.nextLine();
+        if (choice.equals("AL") || choice.equals("VE")  || choice.equals("DL")  || choice.equals("SL") ) {
             run = false;
         } else {
             System.out.println("Por favor ingrese un valor correcto");
         }
     }
 
+    traductor = new Traductor<String>(choice);
+    Singleton.setType(factory.getStack(choice));
+    CalculadoraGeneral calculadora = Singleton.getInstance().s;
+
     File archivo = null;
     FileReader fr = null;
     BufferedReader br = null;
     String resp = "";
 
+    /*
     try {
         archivo = new File ("C:\\Users\\juanc\\OneDrive\\Escritorio\\UVG\\Tareas\\Algoritmos y estructura de Datos\\Hoja de Trabajo3\\src\\archivo.txt");
         fr = new FileReader (archivo);
@@ -65,6 +70,11 @@ public class Main {
     catch(Exception e){
         e.printStackTrace();
     }
+    */
+        String trad = traductor.infixToPostfix("1+2*(7-8)*(4+8*7)-1");
+        resp = calculadora.Calculo(trad);
+        System.out.println(resp);
+
     }
 
     }

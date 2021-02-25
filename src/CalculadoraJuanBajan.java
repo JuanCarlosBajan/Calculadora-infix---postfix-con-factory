@@ -9,8 +9,8 @@ public class CalculadoraJuanBajan implements CalculadoraGeneral{
 
     private Stack<Integer> db;
 
-    public CalculadoraJuanBajan(){
-        db = new StackVector<Integer>();
+    public CalculadoraJuanBajan(Stack election){
+        db = election;
     }
 
     /**
