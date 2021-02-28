@@ -53,6 +53,8 @@ public class Main {
     FileReader fr = null;
     BufferedReader br = null;
     String resp = "";
+    archivos ar=new archivos();
+    String a=ar.leer("archivo.txt")
 
     /*
     try {
