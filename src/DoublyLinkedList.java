@@ -1,4 +1,4 @@
-public class DoublyLinkedList<E> {
+public class DoublyLinkedList<E> extends AbstractList<E>{
     protected int count;
     protected DoublyLinkedNode<E> head;
     protected DoublyLinkedNode<E> tail;

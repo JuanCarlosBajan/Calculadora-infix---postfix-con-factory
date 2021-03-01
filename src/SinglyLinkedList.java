@@ -1,4 +1,4 @@
-public abstract class SinglyLinkedList<E>
+public class SinglyLinkedList<E> extends AbstractList<E>
 {
 
 protected int count; // list size
@@ -63,7 +63,30 @@ public void addLast(E value)
         count++;
 
         }
+public E getRemoveLast(){
+        node<E> finger=head;
+        node<E> previous=null;
+        while(finger.next() != null){
+                previous =finger;
+                finger =finger.next();
+        }
+        if(previous==null){
+                head=null;
+        }
+        else{
+                previous.setNext(null);
+        }
+        count--;
+        return finger.value();
+}
 
+public E getLast(){
+        node<E> finger=head;
+        while(finger.next() !=null){
+                finger=finger.next();
+        }
+        return finger.value();
+}
 
 public boolean contains(E value)
         // pre: value is not null

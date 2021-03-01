@@ -53,12 +53,11 @@ public class Main {
     FileReader fr = null;
     BufferedReader br = null;
     String resp = "";
-    archivos ar=new archivos();
-    String a=ar.leer("archivo.txt")
 
-    /*
+
     try {
-        archivo = new File ("C:\\Users\\juanc\\OneDrive\\Escritorio\\UVG\\Tareas\\Algoritmos y estructura de Datos\\Hoja de Trabajo3\\src\\archivo.txt");
+        archivo = new File ("C:\\Users\\juanc\\OneDrive\\Escritorio\\UVG\\Tareas\\Algoritmos y estructura de Datos\\Hoja de Trabajo 4\\src\\archivo.txt");
+        //SE DEBE CAMBIAR LA DIRECCION DEL ARCHIVO
         fr = new FileReader (archivo);
         br = new BufferedReader(fr);
 
@@ -72,10 +71,6 @@ public class Main {
     catch(Exception e){
         e.printStackTrace();
     }
-    */
-        String trad = traductor.infixToPostfix("1+2*(7-8)*(4+8*7)-1");
-        resp = calculadora.Calculo(trad);
-        System.out.println(resp);
 
     }
 
